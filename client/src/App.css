@@ -1,0 +1,5 @@
+ /* Define tailwindCSS  */
+
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;

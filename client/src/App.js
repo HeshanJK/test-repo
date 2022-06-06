@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import POS_Home from './components/POS_Home';
+import POS_Home from './POS_components/POS_Home';
 
 import './App.css'
 

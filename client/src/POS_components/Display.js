@@ -3,16 +3,18 @@ import React from "react";
 function Display(props) {
   return (
 
-  <div class="relative flex flex-col">
+  <div class="relative flex flex-col top-0">
   
-    <div class="mx-auto flex w-96 flex-col justify-center bg-white rounded-2xl shadow-xl shadow-slate-300/60">
+    <div class="mx-auto flex w-96 flex-col justify-center bg-white rounded shadow-xl">
     
-    <img class="aspect-video w-96 rounded-t-2xl object-cover object-center" src="https://i.imgur.com/7LudVsX.png" />
-    
-      <div class="p-4">
+    <img class="aspect-video w-96 rounded object-cover object-center" src="https://i.imgur.com/7LudVsX.png" />
+
+    <div className="">
+
+    <div class="p-4">
         
         <h1 class="text-2xl font-medium text-slate-600 pb-2">{props.name}</h1>
-        <div className="px-1 py-10">
+        <div className="px-1 py-10 h-100vh">
                <div className="flex">
                  <h6 className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center">
                    Category : 
@@ -46,6 +48,12 @@ function Display(props) {
                  </p>
                </div>
              </div>
+             {/* <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br> */}
 
              <div className="flex">
              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  border border-blue-700 rounded">
@@ -60,6 +68,9 @@ function Display(props) {
            </div>
 
       </div>
+    </div>
+    
+      
     </div>
   </div>
 

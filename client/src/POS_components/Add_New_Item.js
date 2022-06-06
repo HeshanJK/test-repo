@@ -3,10 +3,10 @@ import React from "react";
 function Add_New_Item() {
   return (
     <div
-      class="container flex flex-col overflow-y-scroll w-full "
-      style={{ height: "87vh" }}
+      class="container flex flex-col overflow-y-scroll w-full rounded-lg "
+      style={{ height: "87.5vh" }}
     >
-      <form class="flex flex-col w-full p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform bg-white border rounded-lg ">
+      <form class="flex flex-col w-full p-10 px-8 pt-6 mx-auto my-1 mb-2 transition duration-500 ease-in-out transform bg-white rounded-lg ">
         <section class="flex flex-col w-full h-full p-1 overflow-auto">
           <label for="name" class="text-base leading-7 text-blueGray-500 mb-5">
             Input Image

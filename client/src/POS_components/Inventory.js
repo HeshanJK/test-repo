@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 
 function Inventory() {
   return (
-    <div style={{padding:5}}>
-      <div class="container" style={{marginBottom:10}}>
-        <div className="px-4 md:px-10 py-3 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
+    <div style={{padding:0}}>
+      <div class="">
+        <div className="px-4 md:px-10 py-3 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg border">
           <div className="sm:flex items-center justify-between">
             <p className="text-base sm:text-lg md:text-xl lg:text-xl font-bold leading-normal text-gray-800">
               Inventory
@@ -16,7 +16,7 @@ function Inventory() {
           </div>
         </div>
 
-        <table className="table-auto w-full bg-white">
+        <table className="table-auto w-full bg-white border">
           <thead className="flex w-full">
             <tr className="flex w-full">
               <th className="p-4 w-1/4" scope="col">
@@ -34,8 +34,8 @@ function Inventory() {
             </tr>
           </thead>
           <tbody
-            class="flex flex-col overflow-y-scroll scrollbar-thumb-gray-900 scrollbar-track-gray-100 w-full"
-            style={{ height: "30vh" }}
+            class="flex flex-col overflow-y-scroll w-full"
+            style={{ height: "62vh" }}
           >
             <tr className="flex w-full ">
               <th className="p-4 w-1/4" scope="row">

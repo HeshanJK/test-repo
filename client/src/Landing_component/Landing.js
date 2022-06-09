@@ -64,7 +64,7 @@ function Landing() {
                 class=" w-80 aspect-[12/16]"
                 src="https://i.imgur.com/hNf5iYi.jpeg"
               />
-              <button class="absolute text-lg transform translate-x-20 -translate-y-24 bg-blue-600 text-white py-3 px-10 rounded-full cursor-pointer hover:scale-105 duration-500">
+              <button onClick={() => navigate('/OderTable') } class="absolute text-lg transform translate-x-20 -translate-y-24 bg-blue-600 text-white py-3 px-10 rounded-full cursor-pointer hover:scale-105 duration-500">
                  Sign in
               </button>
             </div>

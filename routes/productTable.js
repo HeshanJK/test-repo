@@ -56,7 +56,7 @@ router.get("/post/:id",(req,res)=>{
             post
         });
     });
-})
+}) 
 
 //update posts
 

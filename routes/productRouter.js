@@ -3,43 +3,19 @@ const res = require('express/lib/response');
 const posts = require('../models/productTable');
 const Posts = require('../models/productTable');
 
+const ProductRouter =require('../Controller/productController')
+
 const router = express.Router();
 
 //Save posts
 //http://localhost:8000/productTable/save
 
-router.post('/productTable/save' ,(req,res)=>{
-
-    let newPost = new Posts(req.body);
-    newPost.save((err)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
-        }
-        return res.status(200).json({
-            success:"Post saved successfully"
-        });
-    });
-
-});
+router.post('/productTable/save' ,);
 
 //Get posts
 //http://localhost:8000/productDeatails
 
-router.get('/productDeatails',(req,res)=>{
-    Posts.find().exec((err,posts)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
-        }    
-            return res.status(200).json({
-                success:true,
-                existingPosts:posts
-            });
-    });
-});
+router.get('/productDeatails',);
 
 //Get a specific post
 

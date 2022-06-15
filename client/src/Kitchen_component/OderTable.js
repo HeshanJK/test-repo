@@ -40,10 +40,10 @@ function OderTable() {
               className="sm:flex items-center "
             >
               <p
-                style={{ color: "blue",fontSize:"45px"}}
+                style={{ color: "blue",fontSize:"40px"}}
                 className="text-base sm:text-lg md:text-xl lg:text-xl font-bold leading-normal text-gray-800"
               >
-                Orders
+                My Orders
               </p>
              <ProfileDropdown/>
 

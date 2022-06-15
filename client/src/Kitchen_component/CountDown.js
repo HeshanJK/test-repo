@@ -1,100 +1,71 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from "react";
 
-function CountDown({childFunc}) {
-    // We need ref in this, because we are dealing
-    // with JS setInterval to keep track of it and
-    // stop it when needed
-    const Ref = useRef(null);
-  
-    // The state for our timer
-    const [timer, setTimer] = useState('00:00');
-  
-  useEffect(()=>{
-    childFunc.current =  startTimer; 
-    clearTimer()  
+function CountDown({initialTime}) {
+  const hoursMinSecs = { hours: initialTime[0], minutes: initialTime[1], seconds: initialTime[2] };
+  const { hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
+  const [[hrs, mins, secs], setTime] = React.useState([
+    hours,
+    minutes,
+    seconds,
+  ]);
 
-  },[])
+  const [started, setStarted] = useState(false);
+  
+  const tick = () => {
+    if (hrs === 0 && mins === 0 && secs === 0) reset();
+    else if (mins === 0 && secs === 0) {
+      setTime([hrs - 1, 59, 59]);
+    } else if (secs === 0) {
+      setTime([hrs, mins - 1, 59]);
+    } else {
+      setTime([hrs, mins, secs - 1]);
+    }
+  };
 
-  
-    const getTimeRemaining = (e) => {
-        const total = Date.parse(e) - Date.parse(new Date());
-        const seconds = Math.floor((total / 1000) % 60);
-        const minutes = Math.floor((total / 1000 / 60) % 60);
-        
-        return {
-            total, minutes, seconds
-        };
+  const reset = () =>
+    setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
+
+  React.useEffect(() => {
+    if (started) {
+      const timerId = setInterval(() => tick(), 1000);
+      return () => clearInterval(timerId);
     }
-  
-  
-    const startTimer = (e) => {
-        console.log("asd");
-        let { total, hours, minutes, seconds } 
-                    = getTimeRemaining(e);
-        if (total >= 0) {
-  
-            // update the timer
-            // check if less than 10 then we need to 
-            // add '0' at the begining of the variable
-            setTimer(
-    
-                (minutes > 9 ? minutes : '0' + minutes) + ':'
-                + (seconds > 9 ? seconds : '0' + seconds)
-            )
-        }
-    }
-  
-  
-    const clearTimer = (e) => {
-  
-        // If you adjust it you should also need to
-        // adjust the Endtime formula we are about
-        // to code next    
-        setTimer('00:20');
-  
-        // If you try to remove this line the 
-        // updating of timer Variable will be
-        // after 1000ms or 1sec
-        if (Ref.current) clearInterval(Ref.current);
-        const id = setInterval(() => {
-            startTimer(e);
-        }, 1000)
-        Ref.current = id;
-    }
-  
-    const getDeadTime = () => {
-        let deadline = new Date();
-  
-        // This is where you need to adjust if 
-        // you entend to add more time
-        deadline.setSeconds(deadline.getSeconds() + 10);
-        return deadline;
-    }
-  
-    // We can use useEffect so that when the component
-    // mount the timer will start as soon as possible
-  
-    // We put empty array to act as componentDid
-    // mount only
-    
-  
-    // Another way to call the clearTimer() to start
-    // the countdown is via action event from the
-    // button first we create function to be called
-    // by the button
-    const onClickReset = () => {
-        clearTimer(getDeadTime());
-    }
-    function alertUser() {
-        alert('You clicked!')
-      }
+  });
+
   return (
-    <div>
-        <div className="Counter">
-            <h2 style={{color: "black" }}>{timer}</h2>
+
+    <>
+      <td className="p-4 w-1/4">
+        <button
+          class=" btn btn-primary font-bold btn-lg"
+          onClick={() => {
+            setStarted(true);
+          }}
+        >
+          Start
+        </button>
+      </td>
+      <td className="p-4 w-1/4">
+        <button
+          class="btn btn-success font-bold btn-lg"
+          onClick={() => {
+            setStarted(false);
+          }}
+        >
+          Finished
+        </button>
+      </td>
+      <td className="p-4 w-1/4">
+        <div className="countdown">
+          <p>
+            {`${hrs.toString().padStart(2, "0")}:${mins
+            .toString()
+            .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`}
+          </p>
         </div>
- </div>
-  )
+      </td>
+    </>
+  );
 }
 
-export default CountDown
+export default CountDown;

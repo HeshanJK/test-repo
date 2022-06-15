@@ -1,15 +1,36 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require("./routes/productTable")
+const bodyparser = require("body-parser");
+const cors = require("cors");
 const app = express();
+const PORT =process.env.PORT || 8000; 
 
-const PORT = 8000;
-const DB_URL ='mongodb+srv://shihara:1234@cluster0.mqq6o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dotenv = require("dotenv");
+require('dotenv/config')
 
+const productRouter = require("./routes/productRouter")
+const userRouter =require('./routes/userRouter')
+const orderRouter = require('./routes/orderRouter')
+const orderItemRouter = require('./routes/orderItemRouter')
+
+app.use(cors());
+app.use(bodyparser.json());
 app.use(express.json())
-app.use("/api",router)
 
-mongoose.connect(DB_URL)
+//api
+app.use("/api/product",productRouter) 
+app.use("/api/user",userRouter) 
+app.use("/api/order",orderRouter) 
+app.use("/api/order/item",orderItemRouter) 
+
+const URL = process.env.DB_URL
+
+mongoose.connect(URL,{
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    // useCreateIndex: true,
+    // useFindAndModify: false,
+  })
 .then(()=>{
     console.log('DB connected');
 })

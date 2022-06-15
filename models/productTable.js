@@ -1,96 +1,30 @@
-const express = require('express');
-const res = require('express/lib/response');
-const posts = require('../models/productTable');
-const Posts = require('../models/productTable');
+const mongoose = require('mongoose');
 
-const router = express.Router();
-
-//Save posts
-//http://localhost:8000/productTable/save
-
-router.post('/productTable/save' ,(req,res)=>{
-
-    let newPost = new Posts(req.body);
-    newPost.save((err)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
-        }
-        return res.status(200).json({
-            success:"Post saved successfully"
-        });
-    });
-
-});
-
-//Get posts
-//http://localhost:8000/productDeatails
-
-router.get('/productDeatails',(req,res)=>{
-    Posts.find().exec((err,posts)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
-        }    
-            return res.status(200).json({
-                success:true,
-                existingPosts:posts
-            });
-    });
-});
-
-//Get a specific post
-
-router.get("/post/:id",(req,res)=>{
-    let postId = req.params.id;
-
-    Posts.findById(postId,(err,post) =>{
-        if(err){
-            return res.status(400).json({success:false, err});
-        }
-
-        return res.status(200).json({
-            success:true,
-            post
-        });
-    });
+const productSchema = new mongoose.Schema({
+    name:{    
+        type:String,
+        required:true
+    },
+    price:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    re_Fill_Level:{
+        type:String,
+        required:true
+    },
+    added_Time:{
+        type:String,
+        required:true
+    },
+    quantity:{
+        type:String,
+        required:true
+    }
 })
 
-//update posts
-
-router.put('/post/update/:id',(req,res)=>{
-    Posts.findByIdAndUpdate(
-        req.params.id,
-        {
-            $set:req.body
-        },
-        (err,post)=>{
-            if(err){
-                return res.status(400).json({error:err});
-            }
-            return res.status(200).json({
-                success:"Updated Successfully"
-            });
-        }
-    );
-});
-
-// delete posts
-
-router.delete('/post/delete/:id',(req,res)=>{
-    Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
-
-        if(err) return res.status(400).json({
-            message:"Delete Unsuccessful",err
-        });
-
-        return res.json({
-            message:"Delete Successfull" ,deletedPost
-        });
-    });
-});
-
-
-module.exports = router;
+module.exports = mongoose.model('product' ,productSchema);

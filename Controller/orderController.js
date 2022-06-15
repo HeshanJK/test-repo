@@ -36,7 +36,17 @@ const placeOrder = async (req, res) => {
       })
   }
 
+// delete order by id
+  const deleteOrdertById = async (req, res) => {
+    Order.findByIdAndRemove(req.body.id)
+      .then((data) => {
+        res.status(200).send(data)
+      })
+      .catch((err) => {
+        res.status(500).send(err)
+      })
+  }
 
   
 
-  module.exports = {placeOrder,getAllOrder,getOrderById};
+  module.exports = {placeOrder,getAllOrder,getOrderById,deleteOrdertById};

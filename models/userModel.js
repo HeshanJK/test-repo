@@ -22,9 +22,6 @@ const UserSchema = mongoose.Schema({
   category: {
     type: String,
   },
-  type: {
-    type: String,
-  },
   telephoneNumber: {
     type: String,
   },

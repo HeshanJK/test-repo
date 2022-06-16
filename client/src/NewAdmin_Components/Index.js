@@ -25,11 +25,11 @@ const Index = () => {
                 <div className="xl:w-full xl:mx-0 pl-5 pr-5 h-15">
                     <ul className="flex">
                         <li onClick={() => setActiveStatus(1)} className={activeStatus == 1 ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-normal" : "text-sm text-gray-600 py-3 mr-10 font-normal cursor-pointer hover:text-gray-800"}>
-                            <span className="mb-3 cursor-pointer">{activeStatus == 1 ? "Active" : "Inactive"}</span>
+                            <span className="mb-3 cursor-pointer">{activeStatus == 1 ? "" : ""}</span>
                             {activeStatus == 1 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                         </li>
                         <li onClick={() => setActiveStatus(2)} className={activeStatus == 2 ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-normal" : "text-sm text-gray-600 py-3 mr-10 font-normal cursor-pointer hover:text-gray-800"}>
-                            <span className="mb-3 cursor-pointer">{activeStatus == 2 ? "Active" : "Inactive"}</span>
+                            <span className="mb-3 cursor-pointer">{activeStatus == 2 ? "" : ""}</span>
                             {activeStatus == 2 && <div className="w-full h-1 bg-indigo-700 rounded-t-md" />}
                         </li>
                         {/* <li onClick={() => setActiveStatus(3)} className={activeStatus == 3 ? "text-sm text-indigo-700 flex flex-col justify-between border-indigo-700 pt-3 rounded-t mr-10 font-normal" : "text-sm text-gray-600 py-3 mr-10 font-normal cursor-pointer hover:text-gray-800"}>

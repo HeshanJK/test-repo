@@ -4,6 +4,20 @@
  @tailwind components;
  @tailwind utilities;
  
+ body {
+  background-image: url('/public/main.jpeg');
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /*background-position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;*/
+}
  .dropbtn {
     background-color: #4CAF50;
     color: white;

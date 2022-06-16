@@ -103,11 +103,11 @@ export default function IndexPage() {
                                             />
                                         </g>
                                     </svg>
-                                    <h2 className="hidden sm:block text-base text-gray-700 font-bold leading-normal pl-3">The North</h2>
+                                    <h2 className="hidden sm:block text-base text-gray-700 font-bold leading-normal pl-3">Home Foods</h2>
                                 </div>
                             </div>
                             <div className="flex">
-                                <div className="hidden xl:flex md:mr-6 xl:mr-16">
+                                {/* <div className="hidden xl:flex md:mr-6 xl:mr-16">
                                     <a href="javascript: void(0)" className="flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
                                         <span className="mr-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -150,7 +150,7 @@ export default function IndexPage() {
                                         </span>
                                         Deliverables
                                     </a>
-                                </div>
+                                </div> */}
                                 <div className="hidden xl:flex items-center">
                                     {/* <div className="relative md:mr-6 my-2">
                                         <button className="focus:outline-none bg-gray-100 border-gray-300 border transition duration-150 ease-in-out hover:bg-gray-300 rounded text-gray-600 px-5 py-2 text-xs">Manage</button>

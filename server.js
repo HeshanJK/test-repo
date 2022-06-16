@@ -12,6 +12,7 @@ const productRouter = require("./routes/productRouter")
 const userRouter =require('./routes/userRouter')
 const orderRouter = require('./routes/orderRouter')
 const orderItemRouter = require('./routes/orderItemRouter')
+const foodRouter = require('./routes/foodRouter')
 
 app.use(cors());
 app.use(bodyparser.json());
@@ -22,6 +23,7 @@ app.use("/api/product",productRouter)
 app.use("/api/user",userRouter) 
 app.use("/api/order",orderRouter) 
 app.use("/api/order/item",orderItemRouter) 
+app.use("/api/food",foodRouter) 
 
 const URL = process.env.DB_URL
 
